@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero Kanban</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Tablero Kanban</h1>
+    <div class="kanban-board">
+        <div class="column" id="toDo" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Por Hacer</h2>
+            <ul class="card-list" id="to-do-list"></ul>
+        </div>
+        <div class="column" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>En Progreso</h2>
+            <ul class="card-list" id="in-progress-list"></ul>
+        </div>
+        <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Completado</h2>
+            <ul class="card-list" id="done-list"></ul>
+        </div>
+    </div>
+    <form id="addCardForm">
+        <label for="cardTitle">Título de la Tarjeta:</label>
+        <input type="text" id="cardTitle" name="cardTitle" required>
+        <button type="submit">Agregar Tarjeta</button>
+    </form>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Tarjeta</h2>
+            <form id="editCardForm">
+                <label for="editCardTitle">Título de la Tarjeta:</label>
+                <input type="text" id="editCardTitle" name="editCardTitle" required>
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+    <div id="subtaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Agregar Subtarea</h2>
+            <form id="addSubtaskForm">
+                <label for="subtaskDescription">Descripción de la Subtarea:</label>
+                <textarea id="subtaskDescription" name="subtaskDescription" required></textarea>
+                <button type="submit">Agregar Subtarea</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
